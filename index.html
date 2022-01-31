@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            box-sizing: border-box;
+            padding: 0.75rem 1.5rem 0.75rem 1.5rem;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .wrapper {
+            box-sizing: border-box;
+            display: grid;
+            grid-template-columns: 1fr .4fr;
+            width: 100%;
+            height: 100%;
+        }
+
+        .content p {
+            margin-top: 1em;
+            margin-bottom: 1em;
+            color: #000000;
+            line-height: 100%;
+            font-size: 24px;
+            text-align: left;
+            vertical-align: top;
+            font-weight: 400;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        .section .aside-wrapper {
+            margin-top: 30px;
+            margin-bottom: 30px;
+            margin-left: auto;
+        }
+
+        .section .box-violet {
+            background: #C7A4F8;
+            height: 194px;
+            width: 194px;
+
+        }
+
+        .section .box-blue {
+            margin-left: auto;
+            background: #44BEE5;
+            height: 194px;
+            width: 194px;
+        }
+
+        .section .card {
+            margin-right: 12px;
+            background: #ffffff;
+            height: 592px;
+            width: 318px;
+            border-radius: 5px;
+            box-shadow: 0px 6px 15px 0px rgba(34, 60, 80, 0.2);
+        }
+
+        .section .card img {
+            display: block;
+            margin: 0 auto;
+        }
+
+        .section .card p {
+            display: block;
+            margin-top: 1em;
+            margin-bottom: 1em;
+            color: #000000;
+            line-height: 100%;
+            font-size: 24px;
+            font-weight: 400;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            text-align: center;
+        }
+
+        .section .card .subtitle {
+            display: block;
+            margin-top: 2em;
+            margin-bottom: .5em;
+            color: #cccccc;
+            line-height: 100%;
+            font-size: 18px;
+            font-weight: 400;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            text-align: center;
+        }
+
+        .section .card .price {
+            display: block;
+            color: #44BEE5;
+            margin-top: .5em;
+            margin-bottom: 1em;
+            line-height: 100%;
+            font-size: 24px;
+            font-weight: 400;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            text-align: center;
+        }
+
+        .stars {
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+        }
+
+        .stars:hover .star polygon {
+            fill: #ffd055 !important;
+        }
+
+        .stars .star polygon {
+            fill: #d8d8d8;
+        }
+
+        .stars .star:hover~.star polygon {
+            fill: #d8d8d8 !important;
+        }
+
+        .stars[data-stars] .star polygon {
+            fill: #ffd055;
+        }
+
+        .stars[data-stars="1"] .star:nth-child(1)~.star polygon {
+            fill: #d8d8d8;
+        }
+
+        .stars[data-stars="2"] .star:nth-child(2)~.star polygon {
+            fill: #d8d8d8;
+        }
+
+        .stars[data-stars="3"] .star:nth-child(3)~.star polygon {
+            fill: #d8d8d8;
+        }
+
+        .stars[data-stars="4"] .star:nth-child(4)~.star polygon {
+            fill: #d8d8d8;
+        }
+
+        .stars[data-stars="5"] .star:nth-child(5)~.star polygon {
+            fill: #d8d8d8;
+        }
+
+        .num-feedback {
+            margin-left: 20px;
+            margin-top: 4px;
+            color: #000000;
+            line-height: 100%;
+            font-size: 18px;
+            font-weight: 400;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        .button {
+            display: flex;
+            justify-content: center; 
+            
+        }
+        .button-shopping-cart {
+            display: flex;
+            justify-content: center; 
+            border-radius: 50px;
+            margin-top: 30px;
+            width: 35%;
+            background-color: #44BEE5;
+            color: white;
+            padding: 6px 12px 6px 12px;
+            line-height: 100%;
+            font-size: 18px;
+            font-weight: 400;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+    </style>
+    <link rel="stylesheet" href="reset.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="wrapper">
+            <div class="section content">
+                <p>
+                    ## Подарунки на будь-який смак
+                </p>
+                <p>
+                    Можливо ми трохи крейзі, али подарунки то є наша пристрасть. Ми любимо дарувати наші найкращі товари
+                    тим, хто любить нашу продукцію та регулярно її купує. Тому зроби перше замовлення на 500 грн і в
+                    наступну посилку ми додамо наш супер-бестселер Засіб для чищення духовок, витяжок та грилю
+                    "Суперсила” лише за 1 грн.
+                </p>
+                <p>
+                    А потім за кожне замовлення на 1000 грн та більше ти зможеш сам обрати свій подарунок зі списку
+                    наших найкращих товарів
+                </p>
+                <p>
+                    `суперсіла, помада, кремчік, туш, вітамінкі`
+                </p>
+                <p>
+                    реєструйся в програму сьогодні та отрумуй 100 грн на покупки
+                </p>
+                <p>
+                    Що потрібно зробити
+                </p>
+                <p>
+                    # 01 Реєструйся
+                </p>
+                <p>
+                    # 02 Отрумуй 100 грн
+                </p>
+                <p>
+                    # 03 Роби замовлення на 500 грн
+                </p>
+                <p>
+                    # 04 Отримуй кешбек 10% та Засіб для чищення духовок, витяжок та грилю "Суперсила” лише за 1 грн
+                </p>
+                <p>
+                    ## Хто ми
+                </p>
+                <p>
+                    Ми перша українська компанія D2C, яка створює товари виключно в Україні і для українців, відроджуючи
+                    принцип Свій до свого по своє.
+                </p>
+                <p>
+                    Jerelia - це бренд майбутнього, який об’єднує людей навколо національної ідеї.
+                </p>
+                <p>
+                    Jerelia - це преміальні товари за демократичними цінами і турботливий клієнтський сервіс
+                </p>
+                <p>
+                    Питання і відповіді
+                </p>
+                <p>
+                    Посилання на офіційні правила
+                </p>
+                <p>
+                    <a href="https://alfabank.ua/credit-cards/cameleon">https://alfabank.ua/credit-cards/cameleon</a>
+                </p>
+                <p>
+                    <a href="https://www.monobank.com.ua">https://www.monobank.com.ua</a>
+                </p>
+            </div>
+            <div class="section">
+                <div class="aside-wrapper box-violet"></div>
+                <div class="aside-wrapper box-blue"></div>
+
+                <div class="aside-wrapper card">
+                    <img src="./arabica.png" alt="">
+                    <p>Кава "Арабiка" (250 гр)</p>
+                    <span class="subtitle">
+                        52607/CAFE MIGLIETTA
+                    </span>
+                    <span class="price">252.00</span>
+
+                    <div class="stars" data-stars="1">
+                        <svg height="25" width="23" class="star rating" data-rating="1">
+                            <polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78"
+                                style="fill-rule:nonzero;" />
+                        </svg>
+                        <svg height="25" width="23" class="star rating" data-rating="2">
+                            <polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78"
+                                style="fill-rule:nonzero;" />
+                        </svg>
+                        <svg height="25" width="23" class="star rating" data-rating="3">
+                            <polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78"
+                                style="fill-rule:nonzero;" />
+                        </svg>
+                        <svg height="25" width="23" class="star rating" data-rating="4">
+                            <polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78"
+                                style="fill-rule:nonzero;" />
+                        </svg>
+                        <svg height="25" width="23" class="star rating" data-rating="5">
+                            <polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78"
+                                style="fill-rule:nonzero;" />
+                        </svg>
+                        <span class="num-feedback">9 вiд.</span>
+                    </div>
+
+                    <div class="button">
+                        <div class="button-shopping-cart">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                                id="mdi-cart-outline" fill="white" width="24" height="24" viewBox="0 0 24 24">
+                                <path
+                                    d="M17,18A2,2 0 0,1 19,20A2,2 0 0,1 17,22C15.89,22 15,21.1 15,20C15,18.89 15.89,18 17,18M1,2H4.27L5.21,4H20A1,1 0 0,1 21,5C21,5.17 20.95,5.34 20.88,5.5L17.3,11.97C16.96,12.58 16.3,13 15.55,13H8.1L7.2,14.63L7.17,14.75A0.25,0.25 0 0,0 7.42,15H19V17H7C5.89,17 5,16.1 5,15C5,14.65 5.09,14.32 5.24,14.04L6.6,11.59L3,4H1V2M7,18A2,2 0 0,1 9,20A2,2 0 0,1 7,22C5.89,22 5,21.1 5,20C5,18.89 5.89,18 7,18M16,11L18.78,6H6.14L8.5,11H16Z" />
+                            </svg>
+                            Додати
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+
+        </div>
+
+
+        <script>
+            const starEls = document.querySelectorAll('.star.rating');
+            starEls.forEach(star => {
+                star.addEventListener('click', function (e) {
+                    let starEl = e.currentTarget;
+                    console.log(starEl.parentNode.dataset.stars + ", " + starEl.dataset.rating);
+                    starEl.parentNode.setAttribute('data-stars', starEl.dataset.rating);
+                });
+            })
+        </script>
+</body>
+
+</html>
